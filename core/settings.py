@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+        'NAME': 'dirty_money.db',
     }
 }
 
@@ -124,3 +124,4 @@ STATICFILES_DIRS = (
 
 #############################################################
 #############################################################
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
