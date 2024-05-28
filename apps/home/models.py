@@ -9,7 +9,7 @@ from django.db import models
 
 
 class AndInventory(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     username = models.TextField(blank=True, null=True)  # This field type is a guess.
     cash = models.TextField(blank=True, null=True)  # This field type is a guess.
     diamonds = models.TextField(blank=True, null=True)  # This field type is a guess.
@@ -32,7 +32,7 @@ class AndInventory(models.Model):
 
 
 class AndProperties(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     username = models.TextField(blank=True, null=True)  # This field type is a guess.
     prop1 = models.TextField(blank=True, null=True)  # This field type is a guess.
     prop2 = models.TextField(blank=True, null=True)  # This field type is a guess.
@@ -45,10 +45,11 @@ class AndProperties(models.Model):
 
     class Meta:
         db_table = 'and_properties'
+    
 
 
 class AtlDump(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     dropped_by_username = models.TextField(blank=True, null=True)
     item_code = models.TextField(blank=True, null=True)
@@ -59,7 +60,7 @@ class AtlDump(models.Model):
 
 
 class AtlInventory(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     username = models.TextField(blank=True, null=True)  # This field type is a guess.
     cash = models.TextField(blank=True, null=True)  # This field type is a guess.
@@ -83,7 +84,7 @@ class AtlInventory(models.Model):
 
 
 class AtlProperties(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     username = models.TextField(blank=True, null=True)  # This field type is a guess.
     prop1 = models.TextField(blank=True, null=True)  # This field type is a guess.
@@ -101,7 +102,7 @@ class AtlProperties(models.Model):
 
 
 class BuyersSellers(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     buyer_or_seller = models.TextField(db_column='Buyer_or_seller', blank=True, null=True)  # Field name made lowercase.
     city = models.TextField(db_column='City', blank=True, null=True)  # Field name made lowercase.
@@ -129,7 +130,7 @@ class BuyersSellers(models.Model):
 
 
 class ItemsDb(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     picture_code = models.IntegerField(db_column='Picture_code', blank=True, null=True)  # Field name made lowercase.
     name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
     qty_unit = models.IntegerField(db_column='Qty_unit', blank=True, null=True)  # Field name made lowercase.
@@ -163,7 +164,7 @@ class ItemsDb(models.Model):
 
 
 class Itemsdb2(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     picture_code = models.TextField(db_column='Picture_code', blank=True, null=True)  # Field name made lowercase.
     name = models.TextField(db_column='Name', blank=True, null=True)  # Field name made lowercase.
@@ -198,7 +199,7 @@ class Itemsdb2(models.Model):
 
 
 class NycDump(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     dropped_by_username = models.TextField(blank=True, null=True)
     item_code = models.TextField(blank=True, null=True)
@@ -209,7 +210,7 @@ class NycDump(models.Model):
 
 
 class NycInventory(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     username = models.TextField(blank=True, null=True)  # This field type is a guess.
     cash = models.TextField(blank=True, null=True)  # This field type is a guess.
@@ -233,7 +234,7 @@ class NycInventory(models.Model):
 
 
 class NycProperties(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     username = models.TextField(blank=True, null=True)  # This field type is a guess.
     prop1 = models.TextField(blank=True, null=True)  # This field type is a guess.
@@ -250,7 +251,7 @@ class NycProperties(models.Model):
 
 
 class PlayerLocations(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     username = models.TextField()
     city = models.TextField()
@@ -268,7 +269,7 @@ class PlayerLocations(models.Model):
 
 
 class PlayerProfiles(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     username = models.TextField(blank=True, null=True)
     credits = models.IntegerField(blank=True, null=True)
@@ -290,7 +291,7 @@ class PlayerProfiles(models.Model):
 
 
 class PlayerStats(models.Model):
-    id = models.BigAutoField(primary_key=True)
+    # id = models.BigAutoField(primary_key=True)
     
     username = models.IntegerField(blank=True, null=True)
     jail_visits = models.IntegerField(blank=True, null=True)
@@ -310,8 +311,7 @@ class PlayerStats(models.Model):
 
 
 class TravelRoutes(models.Model):
-    id = models.BigAutoField(primary_key=True)
-    
+    # 
     route_code = models.TextField(blank=True, null=True)
     starting_city = models.TextField(blank=True, null=True)
     destination_city = models.TextField(blank=True, null=True)

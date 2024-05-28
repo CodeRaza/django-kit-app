@@ -1,0 +1,81 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Edit Travel Route {% endblock %}
+
+{% block content %}
+
+<style>
+    input,
+    textarea {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+</style>
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Edit Travel Route</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Travel Routes</a></li>
+                            <li class="breadcrumb-item">Edit Travel Route</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Edit Details</h5>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" class="edit-form">
+                            {% csrf_token %}
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="id_route_code" class="form-label">Route Code:</label>
+                                    {{ form.route_code }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_starting_city" class="form-label">Starting City:</label>
+                                    {{ form.starting_city }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="id_destination_city" class="form-label">Destination City:</label>
+                                    {{ form.destination_city }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_mode" class="form-label">Mode:</label>
+                                    {{ form.mode }}
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="id_heat" class="form-label">Heat:</label>
+                                    {{ form.heat }}
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="id_time_minutes" class="form-label">Time (Minutes):</label>
+                                    {{ form.time_minutes }}
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

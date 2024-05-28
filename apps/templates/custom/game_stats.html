@@ -1,0 +1,146 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Dashboard {% endblock %} 
+
+<!-- Specific CSS goes HERE -->
+{% block stylesheets %}
+    <style>
+        .dashboard-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .card {
+            margin-bottom: 1rem;
+        }
+        .stats-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.25rem;
+        }
+    </style>
+{% endblock stylesheets %}
+
+{% block content %}
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Dashboard</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item">Game Stats</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <!-- Game Stats Section -->
+                <div class="col-xl-6 col-md-12">
+                    <h1 class="dashboard-title">Game Stats</h1>
+
+                    <div class="stats-section">
+                        <div class="stat-item">
+                            <h5>{{ total_players }}</h5>
+                            <span>Total Players</span>
+                        </div>
+                        <div class="stat-item">
+                            <h5>{{ players_spent_money }}</h5>
+                            <span>Spent Money</span>
+                        </div>
+                        <div class="stat-item">
+                            <h5>{{ total_credits }}</h5>
+                            <span>Total Credits</span>
+                        </div>
+                    </div>
+
+                    <div class="stats-section">
+                        <div class="stat-item">
+                            <h5>{{ us_bank_balance }}</h5>
+                            <span>US Banking Balance</span>
+                        </div>
+                        <div class="stat-item">
+                            <h5>{{ mx_bank_balance }}</h5>
+                            <span>MX Banking Balance</span>
+                        </div>
+                        <div class="stat-item">
+                            <h5>{{ avg_account_age }}</h5>
+                            <span>Average Account Age</span>
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="stat-item">
+                        <h5>{{ avg_networth }}</h5>
+                        <span>Average Networth</span>
+                    </div>
+                </div>
+
+                <div class="col-xl-6 col-md-12 mb-4">
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h3 class="card-title mb-0">Players by Cities</h3>
+                        </div>
+                        <div class="card-body">
+                            <p><strong>US Players:</strong> {{ us_players }}</p>
+                            <p><strong>EU Players:</strong> {{ eu_players }}</p>
+                            <p><strong>CH Players:</strong> {{ ch_players }}</p>
+                            <p><strong>RU Players:</strong> {{ ru_players }}</p>
+                            <p><strong>South Asia Players:</strong> {{ sa_players }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-xl-6 col-md-12">
+                <br/>
+
+                    <h2>Top 10 Players</h2>
+                    <p>In Jail: {{ jail_count }}</p>
+                    <p>In Hospital: {{ hospital_count }}</p>
+
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span class="badge bg-fail rounded-pill text-black">ID</span>
+                        username
+                        <span class="badge bg-success rounded-pill">Networth</span>
+                    </li>
+                    <ol class="list-group list-group-numbered">
+                        
+                        {% for player in top_10_players %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ player.username }}
+                            <span class="badge bg-success rounded-pill">{{ player.networth }}</span>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+
+{% endblock content %}
+
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}
+    <script src="/static/assets/js/plugins/apexcharts.min.js"></script>
+    <script src="/static/assets/js/pages/dashboard-sale.js"></script>
+{% endblock javascripts %}

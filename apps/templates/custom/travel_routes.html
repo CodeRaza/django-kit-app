@@ -1,0 +1,65 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Travel Routes {% endblock %}
+
+{% block content %}
+<div class="pc-container">
+    <div class="pcoded-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Travel Routes</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item">Travel Routes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>All Travel Routes</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Route Code</th>
+                                        <th>Starting City</th>
+                                        <th>Destination City</th>
+                                        <th>Mode</th>
+                                        <th>Heat</th>
+                                        <th>Time (Minutes)</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for route in routes %}
+                                    <tr>
+                                        <td>{{ route.route_code }}</td>
+                                        <td>{{ route.starting_city }}</td>
+                                        <td>{{ route.destination_city }}</td>
+                                        <td>{{ route.mode }}</td>
+                                        <td>{{ route.heat }}</td>
+                                        <td>{{ route.time_minutes }}</td>
+                                        <td><a href="{% url 'edit_travel_route' route.id %} " class="btn btn-sm btn-primary">Edit</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

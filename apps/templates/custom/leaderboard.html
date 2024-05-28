@@ -1,0 +1,80 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Leaderboard {% endblock %}
+
+{% block stylesheets %}
+    <!-- Add any specific CSS for the leaderboard page here -->
+    <link rel="stylesheet" href="/static/assets/css/leaderboard.css">
+
+    <style>
+       
+    </style>
+{% endblock stylesheets %}
+
+{% block content %}
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="page-header-title">
+                                <h5 class="m-b-10">Leaderboard</h5>
+                            </div>
+                            <ul class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                                <li class="breadcrumb-item">Leaderboard</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ breadcrumb ] end -->
+            <!-- [ Main Content ] start -->
+            <div class="row">
+                <div class="col-xl-12 col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Top Players by Net Worth</h5>
+                        </div>
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Player Name</th>
+                                        <th>Net Worth</th>
+                                        <th>Country</th>
+                                        <th>Credits</th>
+                                        <th>Us banking</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for player in players %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ player.username }}</td>
+                                        <td>${{ player.networth|floatformat:2 }}</td>
+                                        <td>{{player.country}}</td>
+                                        <td>{{ player.credits}}</td>
+                                        <td>${{ player.us_banking|floatformat:2 }}</td>
+
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- [ Main Content ] end -->
+        </div>
+    </div>
+    <!-- [ Main Content ] end -->
+{% endblock content %}
+
+{% block javascripts %}
+    <!-- Add any specific JS for the leaderboard page here -->
+{% endblock javascripts %}

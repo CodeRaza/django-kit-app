@@ -1,0 +1,29 @@
+{% block content %}
+<h1>Game Stats</h1>
+<p>Total Players: {{ total_players }}</p>
+<p>Players Spent Money: {{ players_spent_money }}</p>
+<p>Total Credits: {{ total_credits }}</p>
+<p>US Banking Balance: {{ us_bank_balance }}</p>
+<p>MX Banking Balance: {{ mx_bank_balance }}</p>
+<p>Average Account Age: {{ avg_account_age }}</p>
+<p>Average Networth: {{ avg_networth }}</p>
+<h2>Top 10 Players</h2>
+<ul>
+    {% for player in top_10_players %}
+    <li>{{ player.username }}: {{ player.networth }}</li>
+    {% endfor %}
+</ul>
+<p>In Jail: {{ jail_count }}</p>
+<p>In Hospital: {{ hospital_count }}</p>
+<h2>Users per City</h2>
+<ul>
+    {% for city in users_per_city %}
+    <li>{{ city.city }}: {{ city.count }}</li>
+    {% endfor %}
+</ul>
+<p>US Players: {{ us_players }}</p>
+<p>EU Players: {{ eu_players }}</p>
+<p>CH Players: {{ ch_players }}</p>
+<p>RU Players: {{ ru_players }}</p>
+<p>South Asia Players: {{ sa_players }}</p>
+{% endblock %}

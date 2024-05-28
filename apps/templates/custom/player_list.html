@@ -1,0 +1,72 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} Player List {% endblock %}
+
+{% block content %}
+<div class="pc-container">
+    <div class="pcoded-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Player List</h5>
+                        </div>
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item">Player List</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <form method="get" action="{% url 'player_search' %}" class="d-flex">
+                            <input type="text" name="query" class="form-control me-2" placeholder="Search by username">
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </form>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>All Players</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Player Name</th>
+                                        <th>Net Worth</th>
+                                        <th>Country</th>
+                                        <th>Credits</th>
+                                        <th>US Banking</th>
+                                        <th>Action</th> <!-- New column for the edit button -->
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for player in players %}
+                                    <tr>
+                                        <td>{{ forloop.counter }}</td>
+                                        <td>{{ player.username }}</td>
+                                        <td>{{ player.networth }}</td>
+                                        <td>{{ player.country }}</td>
+                                        <td>{{ player.credits }}</td>
+                                        <td>{{ player.us_banking }}</td>
+                                        <td><a href="{% url 'edit_player' player.id %}" class="btn btn-sm btn-primary">Edit</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

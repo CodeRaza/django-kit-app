@@ -73,7 +73,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'dirty_money.db',
+        'NAME': 'db.sqlite3',
     }
 }
 
